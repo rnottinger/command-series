@@ -1,0 +1,38 @@
+#! /usr/bin/env php
+<?php
+
+use Acme\SayHelloCommand;
+use Symfony\Component\Console\Application;
+//use Symfony\Component\Console\Input\InputInterface;  SINCE WE MOVE COMMAND TO A CLASS THEN DONT NEED THIS
+//use Symfony\Component\Console\Input\InputArgument;
+//use Symfony\Component\Console\Output\OutputInterface;
+
+require 'vendor/autoload.php';
+
+// can also pass in "the name of our app", & "the version"
+$app = new Application("Richacasts Demo", '1.0');  // we initialize our application
+
+// now can register our new app
+// we can either do this inline here
+// or if you want a dedicated class
+//$app->register('sayHelloTo')
+//    ->setDescription('Offer a greeting to the given person.')
+////    ->addArgument('name',InputArgument::REQUIRED)// can specify if required (default not required)
+//    ->addArgument('name',InputArgument::OPTIONAL,'Your Name')// can specify if required (default not required)
+//    ->setCode(function(InputInterface $input, OutputInterface $output) // set the code that will be executed
+//    {
+//        $name = $input->getArgument('name');
+//        $message = 'Hello, ' . $input->getArgument('name');
+//        $output->writeln('Hello, ' . $name);
+//        $output->writeln('<info>Hello, ' . $name . '</info>');
+//        $output->writeln('<comment>Hello, ' . $name . '</comment>');
+//        $output->writeln("<info>{$message}</info>");
+//        $output->writeln('Hello World');
+//    });
+
+// Instead of having a closure use a class
+$app->add(new SayHelloCommand); // Add any number of commands
+//$app->add(new SomeHelloCommand); // Add any number of commands
+//$app->add(new OtherHelloCommand); // Add any number of commands
+// Start the app
+$app->run();
