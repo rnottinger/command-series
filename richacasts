@@ -1,7 +1,7 @@
 #! /usr/bin/env php
 <?php
 
-use Acme\SayHelloCommand;
+use Acme\NewCommand;
 use Symfony\Component\Console\Application;
 //use Symfony\Component\Console\Input\InputInterface;  SINCE WE MOVE COMMAND TO A CLASS THEN DONT NEED THIS
 //use Symfony\Component\Console\Input\InputArgument;
@@ -31,7 +31,8 @@ $app = new Application("Richacasts Demo", '1.0');  // we initialize our applicat
 //    });
 
 // Instead of having a closure use a class
-$app->add(new SayHelloCommand); // Add any number of commands
+//$app->add(new SayHelloCommand); // Add any number of commands
+$app->add(new NewCommand); // Add any number of commands
 //$app->add(new SomeHelloCommand); // Add any number of commands
 //$app->add(new OtherHelloCommand); // Add any number of commands
 // Start the app
